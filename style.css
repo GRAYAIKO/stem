@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    animation: fadeInScale 1.5s ease-in-out;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Thu nhỏ phần tử khi bắt đầu */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Phóng to phần tử về kích thước bình thường */
+    }
+}
+
+@keyframes updateAnimation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.container.update {
+    animation: updateAnimation 0.6s ease-in-out;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    padding: 12px 20px;
+    width: 300px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.search-box button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-box button:hover {
+    background: #0054b3;
+}
+
+.weather-info {
+    text-align: center;
+    animation: fadeInScale 1.5s ease-in-out;
+}
+
+.weather-info h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.weather-info .temperature {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 10px 0;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.weather-info .description {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.detail-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.detail-card:hover {transform: translateY(-10px);
+}
+
+.detail-card i {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.detail-card p {
+    font-size: 1.2em;
+}
+
+.error {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 1.2em;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .weather-info h1 {
+        font-size: 2em;
+    }
+
+    .weather-info .temperature {
+        font-size: 3em;
+    }
+
+    .search-box input {
+        width: 200px;
+    }
+}
