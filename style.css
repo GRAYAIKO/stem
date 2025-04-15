@@ -96,9 +96,6 @@ body {
     transition: transform 0.3s, box-shadow 0.3s; 
 }
 
-.search-box input:hover {
-    box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.5);
-}
 .search-box button {
     padding: 12px 20px;
     border: none;
@@ -107,16 +104,39 @@ body {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s; 
     text-shadow: 1px 0px 1px #00e1ff;
 }
 
 .search-box button:hover {
     background: #006bb3;
     transform: translateY(-2px);
-    box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.5); 
 }
 
+.search-box.winter {
+    display: flex;
+    width: 300px; /* Giới hạn chiều rộng */
+    margin: auto; /* Căn giữa */
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: hsl(199, 78%, 60%);
+}
+
+.search-box.winter input {
+        color: #000; /* Màu chữ đen */
+}
+
+.search-box.sunny {
+    display: flex;
+    width: 300px; /* Giới hạn chiều rộng */
+    margin: auto; /* Căn giữa */
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: hwb(19 41% 0%);
+}
+
+.search-box.sunny input {
+        color: #000; /* Màu chữ đen */
+}
 .weather-info {
     text-align: center;
     animation: fadeInScale 1.5s ease-in-out;
@@ -125,6 +145,14 @@ body {
 .weather-info h1 {
     font-size: 3em;
     margin-bottom: 10px;
+}
+
+.weather-info h1.winter {
+    color: #3a4452; /* Đổi màu chữ thành đen */
+}
+
+.weather-info h1.sunny {/* tên thành phố */
+    color: #ff0000; /* Màu vàng */
 }
 
 .weather-info .temperature {
@@ -136,10 +164,28 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.weather-info .temperature.winter {
+    color: #000; /* Đổi màu chữ thành đen */
+    /* Thêm các thuộc tính khác bạn muốn thay đổi */
+}
+
+.weather-info .temperature.sunny {
+    color: #ff0; /* Màu vàng */
+}
+
 .weather-info .description {
     font-size: 1.5em;
     text-transform: capitalize;
     margin-bottom: 20px;
+}
+
+.weather-info .description.winter {
+    color: #000; /* Đổi màu chữ thành đen */
+    /* Thêm các thuộc tính khác bạn muốn thay đổi */
+}
+
+.weather-info .description.sunny {
+    color: lab(47.4% -12.76 -5.38); /* Màu vàng */
 }
 
 .weather-details {
@@ -170,6 +216,16 @@ body {
 
 .detail-card p {
     font-size: 1.2em;
+}
+
+.detail-card.winter {
+    background: hsl(202, 76%, 64%);
+    color: rgb(252, 244, 244);
+}
+
+.detail-card.sunny {
+    background: hsl(27, 100%, 55%); /* Màu vàng nhạt */
+    color: lch(100% 0.01 296.81); /* Màu chữ đen */
 }
 
 .error {

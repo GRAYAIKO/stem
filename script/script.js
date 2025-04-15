@@ -44,6 +44,75 @@ async function getWeather() {
         // Thay đổi màu nền theo nhiệt độ
         updateBackgroundColor(temperature);
 
+        // Thêm class winter cho các detail-card nếu nhiệt độ <= 16
+        const detailCards = document.querySelectorAll('.detail-card');
+        detailCards.forEach(card => {
+            if (temperature <= 16) {
+                card.classList.add('winter');
+            } else {
+                card.classList.remove('winter');
+            }
+        });
+
+        // Thêm class winter cho cityName nếu nhiệt độ <= 16
+        const cityName = document.getElementById('cityName');
+        if (temperature <= 16) {
+            cityName.classList.add('winter');
+        } else {
+            cityName.classList.remove('winter');
+        }
+
+        // Thêm class winter cho temperature và description nếu nhiệt độ <= 16
+        const temperatureElement = document.getElementById('temperature');
+        const descriptionElement = document.getElementById('description');
+        if (temperature <= 16) {
+            temperatureElement.classList.add('winter');
+            descriptionElement.classList.add('winter');
+        } else {
+            temperatureElement.classList.remove('winter');
+            descriptionElement.classList.remove('winter');
+        }
+
+        // Thêm class winter cho search-box nếu nhiệt độ <= 16
+        const searchBox = document.querySelector('.search-box');
+        if (temperature <= 16) {
+            searchBox.classList.add('winter');
+        } else {
+            searchBox.classList.remove('winter');
+        }
+
+        // Thêm class sunny cho các detail-card nếu trời nắng
+        detailCards.forEach(card => {
+            if (temperature >=30 ) {
+                card.classList.add('sunny');
+            } else {
+                card.classList.remove('sunny');
+            }
+        });
+
+        // Thêm class sunny cho cityName nếu trời nắng
+        if (temperature >=30) {
+            cityName.classList.add('sunny');
+        } else {
+            cityName.classList.remove('sunny');
+        }
+
+        // Thêm class sunny cho temperature và description nếu trời nắng
+        if (temperature >=30) {
+            temperatureElement.classList.add('sunny');
+            descriptionElement.classList.add('sunny');
+        } else {
+            temperatureElement.classList.remove('sunny');
+            descriptionElement.classList.remove('sunny');
+        }
+
+        // Thêm class sunny cho search-box nếu trời nắng
+        if (temperature >=30) {
+            searchBox.classList.add('sunny');
+        } else {
+            searchBox.classList.remove('sunny');
+        }
+
     } catch (err) {
         error.style.display = 'block';
         container.classList.add('ngu'); // Thêm class 'ngu' nếu có lỗi
@@ -60,10 +129,13 @@ function updateBackgroundColor(temperature) {
 
     if (temperature >= 30) {
         body.style.background = 'linear-gradient(45deg, #FFA07A, #FFD700)'; // Cam, vàng
+        body.style.color = '#fff'; // Màu chữ trắng
     } else if (temperature <= 16) {
         body.style.background = 'linear-gradient(45deg, #ADD8E6, #87CEEB)'; // Xanh nhạt (chủ đề mùa đông)
+        body.style.color = '#000'; // Đổi màu chữ thành đen
     } else if (temperature < 30){
         body.style.background = 'linear-gradient(45deg, #0a0a0a, #3a4452)'; // Màu tối
+        body.style.color = '#fff'; // Màu chữ trắng
     }
 }
 
